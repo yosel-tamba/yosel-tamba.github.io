@@ -7,7 +7,7 @@ h1, h2 {
 
 .container {
     width: 600px;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 6000));
+    /* grid-template-columns: repeat(auto-fit, minmax(100px, 6000)); */
     margin: auto;
     cursor: url(../img/palu1.png), auto;
 }
