@@ -1,3 +1,7 @@
+body {
+    background-image: url(../img/blue.jpg);
+}
+
 h1, h2 {
     font-size: 3.5em;
     text-align: center;
