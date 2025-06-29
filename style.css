@@ -1,0 +1,30 @@
+ html[data-theme="dark"] {
+     --tw-bg-opacity: 1;
+     --color-bg: #0f172a;
+     --color-text: #f1f5f9;
+     --color-primary: #3b82f6;
+ }
+
+ html[data-theme="light"] {
+     --tw-bg-opacity: 1;
+     --color-bg: #ffffff;
+     --color-text: #1e293b;
+     --color-primary: #8b5cf6;
+ }
+
+ body {
+     background-color: var(--color-bg);
+     color: var(--color-text);
+     transition: background-color 0.5s ease, color 0.5s ease;
+ }
+
+ .primary-btn {
+     background-color: var(--color-primary);
+     transition: background-color 0.3s ease;
+ }
+
+ .color-theme {
+     background-color: var(--color-bg);
+     color: var(--color-text);
+     transition: background-color 0.5s, color 0.5s;
+ }

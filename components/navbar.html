@@ -1,0 +1,77 @@
+<nav
+  class="fixed w-full z-50 transition-colors duration-500 shadow-lg px-6 md:px-10 lg:px-24 mx-auto py-4 flex justify-between items-center color-theme/90 backdrop-blur-md"
+>
+  <!-- Left: Brand -->
+  <h1 class="text-xl font-bold">Yosua</h1>
+  <!-- Right: Nav links and theme toggle -->
+  <div class="flex items-center gap-2">
+    <!-- Hamburger Button (Mobile) -->
+    <button
+      class="md:hidden flex items-center p-2 rounded transition-all hover:bg-[var(--color-primary)] hover:text-white"
+      onclick="toggleNavDropdown()"
+      aria-label="Toggle navigation"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </button>
+    <!-- Navigation Links -->
+    <div
+      id="navLinks"
+      class="flex flex-col md:flex-row gap-0 md:gap-6 items-start text-sm md:text-base hidden md:flex md:static md:top-auto md:left-auto md:w-auto md:px-0 md:py-0 md:shadow-none md:bg-transparent absolute top-16 left-0 w-full px-6 py-4 shadow bg-[var(--color-bg)] transition-all duration-300 ease-in-out transform -translate-y-8 opacity-0 md:translate-y-0 md:opacity-100"
+      style="z-index: 49"
+    >
+      <a
+        href="#hero"
+        class="block w-full py-2 md:py-0 hover:text-[var(--color-primary)] transition font-semibold"
+        >Home</a
+      >
+      <a
+        href="#profile"
+        class="block w-full py-2 md:py-0 hover:text-[var(--color-primary)] transition font-semibold"
+        >Profile</a
+      >
+      <a
+        href="#skill"
+        class="block w-full py-2 md:py-0 hover:text-[var(--color-primary)] transition font-semibold"
+        >Skills</a
+      >
+      <a
+        href="#sertifikat"
+        class="block w-full py-2 md:py-0 hover:text-[var(--color-primary)] transition font-semibold"
+        >Sertifikat</a
+      >
+      <a
+        href="#portfolio"
+        class="block w-full py-2 md:py-0 hover:text-[var(--color-primary)] transition font-semibold"
+        >Portfolio</a
+      >
+      <a
+        href="#contact"
+        class="block w-full py-2 md:py-0 hover:text-[var(--color-primary)] transition font-semibold"
+        >Contact</a
+      >
+    </div>
+    <!-- Theme Toggle Button -->
+    <button
+      onclick="toggleTheme()"
+      id="themeToggle"
+      class="transition-all duration-300 p-2 ml-2 hover:opacity-80"
+    >
+      <i
+        class="fas fa-sun"
+        style="color: #ffd220; text-shadow: 0 0 8px #ffd22088"
+      ></i>
+    </button>
+  </div>
+</nav>
