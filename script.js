@@ -121,9 +121,15 @@ fetch("components/modal-certificates.html")
     .then((data) => {
         document.getElementById("modal-certificates-container").innerHTML = data;
     });
-    
+
 fetch("components/modal-projects.html")
     .then((res) => res.text())
     .then((data) => {
         document.getElementById("modal-projects-container").innerHTML = data;
+    });
+
+fetch("components/footer.html")
+    .then((res) => res.text())
+    .then((data) => {
+        document.getElementById("footer-container").innerHTML = data;
     });
