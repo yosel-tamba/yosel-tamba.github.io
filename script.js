@@ -74,6 +74,7 @@ document
         );
     });
 
+// element loading
 fetch("components/navbar.html")
     .then((res) => res.text())
     .then((data) => {
