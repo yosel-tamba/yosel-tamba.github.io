@@ -1,105 +1,264 @@
+<!-- Modal 1 -->
 <div
   id="portfolioModal1"
-  class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+  class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0"
 >
   <div
-    class="color-theme p-6 rounded shadow max-w-lg relative animate-fadeIn border-t-4 border-[var(--color-primary)]"
+    class="color-theme p-8 shadow-2xl max-w-4xl w-full relative animate-fadeIn scale-95 transition-all duration-300 flex flex-col items-center"
+    style="
+      box-shadow: 0 16px 48px 0
+        color-mix(in srgb, var(--color-primary) 30%, transparent);
+    "
   >
     <button
       onclick="closeModal('portfolioModal1')"
-      class="absolute top-2 right-2 text-xl text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white rounded-full transition p-1"
+      class="absolute top-2 right-2 text-xl text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white rounded-full transition p-1 w-9 h-9 flex items-center justify-center"
+      aria-label="Close"
     >
-      ✕
+      <i class="fas fa-times"></i>
     </button>
-    <h4 class="text-2xl font-bold mb-2 text-[var(--color-primary)]">
-      Lorem Ipsum
-    </h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi vel consectetur euismod, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.
-    </p>
+    <img
+      src="img/projects/logo_msl.png"
+      alt="Project Image"
+      class="rounded-xl shadow-lg w-64 md:w-96 object-contain mb-4"
+      style="object-fit: contain"
+    />
+    <div class="flex flex-col items-center w-full">
+      <h4
+        class="text-2xl font-bold mb-2 text-[var(--color-primary)] text-center"
+      >
+        Virtual Multiple Skill Laboratory
+      </h4>
+      <div class="flex flex-wrap gap-2 mt-auto">
+        <span
+          class="inline-block bg-[var(--color-primary)] text-[var(--color-bg)] py-1 px-3 rounded-full text-xs font-medium"
+          >Codeigniter</span
+        >
+        <span
+          class="inline-block bg-[var(--color-primary)] text-[var(--color-bg)] py-1 px-3 rounded-full text-xs font-medium"
+          >Bootstrap</span
+        >
+      </div>
+      <p class="text-[var(--color-text)] text-center mt-4">
+        <strong>Virtual Multiple Skill Laboratory (V-MSL)</strong> is an
+        educational application that provides online class and online quiz
+        features. Through V-MSL, users can participate in online learning,
+        access lesson materials, and take quizzes to test their understanding.
+        This application is designed to support an interactive and flexible
+        teaching and learning process. In addition, V-MSL offers a user-friendly
+        interface that makes it easy for both students and teachers to navigate
+        and utilize its features. The platform also enables teachers to create
+        and manage classes, assign tasks, and monitor student progress in real
+        time. With its comprehensive set of tools, V-MSL aims to enhance the
+        overall educational experience and foster effective digital learning
+        environments.
+      </p>
+    </div>
   </div>
 </div>
+
+<!-- modal 2 -->
 <div
   id="portfolioModal2"
-  class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+  class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0"
 >
   <div
-    class="color-theme p-6 rounded shadow max-w-lg relative animate-fadeIn border-t-4 border-[var(--color-primary)]"
+    class="color-theme p-8 shadow-2xl max-w-4xl w-full relative animate-fadeIn scale-95 transition-all duration-300 flex flex-col items-center"
+    style="
+      box-shadow: 0 16px 48px 0
+        color-mix(in srgb, var(--color-primary) 30%, transparent);
+    "
   >
     <button
       onclick="closeModal('portfolioModal2')"
-      class="absolute top-2 right-2 text-xl text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white rounded-full transition p-1"
+      class="absolute top-2 right-2 text-xl text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white rounded-full transition p-1 w-9 h-9 flex items-center justify-center"
+      aria-label="Close"
     >
-      ✕
+      <i class="fas fa-times"></i>
     </button>
-    <h4 class="text-2xl font-bold mb-2 text-[var(--color-primary)]">
-      Lorem Ipsum
-    </h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi vel consectetur euismod, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.
-    </p>
+    <img
+      src="img/projects/e-library.png"
+      alt="Project Image"
+      class="rounded-xl shadow-lg w-64 md:w-96 object-contain mb-4"
+      style="object-fit: contain"
+    />
+    <div class="flex flex-col items-center w-full">
+      <h4
+        class="text-2xl font-bold mb-2 text-[var(--color-primary)] text-center"
+      >
+        Pustaka 7
+      </h4>
+      <div class="flex flex-wrap gap-2 mt-auto">
+        <span
+          class="inline-block bg-[var(--color-primary)] text-[var(--color-bg)] py-1 px-3 rounded-full text-xs font-medium"
+          >Codeigniter</span
+        >
+        <span
+          class="inline-block bg-[var(--color-primary)] text-[var(--color-bg)] py-1 px-3 rounded-full text-xs font-medium"
+          >Bootstrap</span
+        >
+      </div>
+      <p class="text-[var(--color-text)] text-center mt-4">
+        <strong>Pustaka 7</strong> is a digital school library application
+        designed to facilitate both students and teachers in borrowing digital
+        books. The platform provides an easy-to-use interface for searching,
+        borrowing, and reading books online. In addition, Pustaka 7 features an
+        admin dashboard that allows administrators to manage users and books
+        efficiently. This comprehensive system aims to support digital literacy
+        and streamline library management within the school environment.
+      </p>
+    </div>
   </div>
 </div>
+
+<!-- modal 3 -->
 <div
   id="portfolioModal3"
-  class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+  class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0"
 >
   <div
-    class="color-theme p-6 rounded shadow max-w-lg relative animate-fadeIn border-t-4 border-[var(--color-primary)]"
+    class="color-theme p-8 shadow-2xl max-w-4xl w-full relative animate-fadeIn scale-95 transition-all duration-300 flex flex-col items-center"
+    style="
+      box-shadow: 0 16px 48px 0
+        color-mix(in srgb, var(--color-primary) 30%, transparent);
+    "
   >
     <button
       onclick="closeModal('portfolioModal3')"
-      class="absolute top-2 right-2 text-xl text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white rounded-full transition p-1"
+      class="absolute top-2 right-2 text-xl text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white rounded-full transition p-1 w-9 h-9 flex items-center justify-center"
+      aria-label="Close"
     >
-      ✕
+      <i class="fas fa-times"></i>
     </button>
-    <h4 class="text-2xl font-bold mb-2 text-[var(--color-primary)]">
-      Lorem Ipsum
-    </h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi vel consectetur euismod, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.
-    </p>
+    <img
+      src="img/projects/absen.png"
+      alt="Project Image"
+      class="rounded-xl shadow-lg w-64 md:w-96 object-contain mb-4"
+      style="object-fit: contain"
+    />
+    <div class="flex flex-col items-center w-full">
+      <h4
+        class="text-2xl font-bold mb-2 text-[var(--color-primary)] text-center"
+      >
+        Attendance System Website
+      </h4>
+      <div class="flex flex-wrap gap-2 mt-auto">
+        <span
+          class="inline-block bg-[var(--color-primary)] text-[var(--color-bg)] py-1 px-3 rounded-full text-xs font-medium"
+          >Laravel</span
+        >
+        <span
+          class="inline-block bg-[var(--color-primary)] text-[var(--color-bg)] py-1 px-3 rounded-full text-xs font-medium"
+          >React</span
+        >
+        <span
+          class="inline-block bg-[var(--color-primary)] text-[var(--color-bg)] py-1 px-3 rounded-full text-xs font-medium"
+          >Bootstrap</span
+        >
+      </div>
+      <p class="text-[var(--color-text)] text-center mt-4">
+        This is a student attendance management website designed for use in
+        various schools, and it does not have a specific name to allow for
+        flexible implementation. The platform features attendance monitoring
+        that can be performed by homeroom teachers, as well as student
+        attendance input through student card tapping. Additionally,
+        administrators have access to a dashboard for managing attendance
+        records, homeroom teachers, and students. The application also includes
+        a school information management feature, allowing each school to
+        configure its own details and settings, making the attendance website
+        highly flexible and adaptable for different educational institutions.
+      </p>
+    </div>
   </div>
 </div>
+
+<!-- modal 4 -->
 <div
   id="portfolioModal4"
-  class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+  class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 transition-opacity duration-300 opacity-0"
 >
   <div
-    class="color-theme p-6 rounded shadow max-w-lg relative animate-fadeIn border-t-4 border-[var(--color-primary)]"
+    class="color-theme p-8 shadow-2xl w-full max-w-xl relative animate-fadeIn scale-95 transition-all duration-300 flex flex-col items-center overflow-y-auto max-h-[90vh]"
+    style="
+      box-shadow: 0 16px 48px 0
+        color-mix(in srgb, var(--color-primary) 30%, transparent);
+    "
   >
     <button
       onclick="closeModal('portfolioModal4')"
-      class="absolute top-2 right-2 text-xl text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white rounded-full transition p-1"
+      class="absolute top-2 right-2 text-xl text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white rounded-full transition p-1 w-9 h-9 flex items-center justify-center"
+      aria-label="Close"
     >
-      ✕
+      <i class="fas fa-times"></i>
     </button>
-    <h4 class="text-2xl font-bold mb-2 text-[var(--color-primary)]">
-      Lorem Ipsum
-    </h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi vel consectetur euismod, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.
-    </p>
-  </div>
-</div>
-<div
-  id="portfolioModal5"
-  class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
->
-  <div
-    class="color-theme p-6 rounded shadow max-w-lg relative animate-fadeIn border-t-4 border-[var(--color-primary)]"
-  >
-    <button
-      onclick="closeModal('portfolioModal5')"
-      class="absolute top-2 right-2 text-xl text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white rounded-full transition p-1"
-    >
-      ✕
-    </button>
-    <h4 class="text-2xl font-bold mb-2 text-[var(--color-primary)]">
-      Lorem Ipsum
-    </h4>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi vel consectetur euismod, nisl nisi consectetur nisi, euismod euismod nisi nisi euismod.
-    </p>
+    <img
+      src="img/projects/evalingo.png"
+      alt="Project Image"
+      class="rounded-xl shadow-lg w-48 md:w-72 object-contain mb-4"
+      style="object-fit: contain"
+    />
+    <div class="flex flex-col items-center w-full">
+      <h4
+        class="text-2xl font-bold mb-2 text-[var(--color-primary)] text-center"
+      >
+        Evalingo
+      </h4>
+      <div class="flex flex-wrap gap-2 mt-auto">
+        <span
+          class="inline-block bg-[var(--color-primary)] text-[var(--color-bg)] py-1 px-3 rounded-full text-xs font-medium"
+          >Codeigniter</span
+        >
+        <span
+          class="inline-block bg-[var(--color-primary)] text-[var(--color-bg)] py-1 px-3 rounded-full text-xs font-medium"
+          >Bootstrap</span
+        >
+      </div>
+      <p class="text-[var(--color-text)] text-center mt-4">
+        Evalingo is a language learning application that combines AI assistance
+        and gamification to create an engaging learning experience. Users can
+        access learning materials, take quizzes, and compete on a ranking
+        scoreboard, making the process interactive and fun like playing a game.
+        The platform features an AI assistant powered by the Llama 3.2 3B large
+        language model, allowing users to ask questions about any material they
+        find challenging. This AI-driven support helps users better understand
+        the content and enhances their overall learning journey.
+      </p>
+    </div>
+    <div class="mt-8 w-full">
+      <h5
+        class="text-xl font-semibold text-[var(--color-primary)] text-center mb-4"
+      >
+        Other Colaborator
+      </h5>
+      <div class="flex flex-wrap justify-center gap-6">
+        <!-- Team Member 1 -->
+        <div
+          class="flex flex-col items-center rounded-xl shadow-xl p-4 w-40"
+        >
+          <img
+            src="img/colaborator/team2.jpg"
+            alt="Team Member 1"
+            class="w-32 h-32 rounded-full object-cover mb-2 border-2 border-[var(--color-primary)]"
+          />
+          <span class="font-medium text-center text-[var(--color-primary)] hover:text-[var(--color-text)]">Muhammad Ulul Albab</span>
+          <div class="flex gap-3 mt-2">
+            <a
+              href="https://github.com/UlulAlbab0926"
+              target="_blank"
+              class="text-[var(--color-primary)] hover:text-[var(--color-text)] text-lg"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/m.albab12/"
+              target="_blank"
+              class="text-[var(--color-primary)] hover:text-[var(--color-text)] text-lg"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -53,6 +53,7 @@ function openModal(id) {
         modal.classList.add("opacity-100");
     });
 }
+
 function closeModal(id) {
     const modal = document.getElementById(id);
     // Animate out
