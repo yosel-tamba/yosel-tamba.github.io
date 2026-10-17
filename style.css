@@ -1,56 +1,457 @@
- html[data-theme="dark"] {
-     --tw-bg-opacity: 1;
-     --color-bg: #0f172a;
-     --color-text: #f1f5f9;
-     --color-primary: #3b82f6;
- }
+/* =========================================================
+   Portfolio — minimal custom styling layered on Bootstrap 6.
+   All colors reference Bootstrap theme variables (--bs-*),
+   so the palette stays consistent with the framework and is
+   limited to four families: light, dark, primary and accent.
+     Primary  -> var(--bs-primary-base)  (brand / buttons)
+     Accent   -> var(--bs-accent-base)
+     Neutrals -> var(--bs-*-body), var(--bs-bg-*), var(--bs-fg-*)
+   ========================================================= */
+:root {
+  --brand: var(--bs-primary-base);
+  --accent: var(--bs-accent-base);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
 
- html[data-theme="light"] {
-     --tw-bg-opacity: 1;
-     --color-bg: #ffffff;
-     --color-text: #1e293b;
-     --color-primary: #8b5cf6;
- }
+/* =========================================================
+   1. BASE
+   ========================================================= */
+* {
+  scroll-behavior: smooth;
+}
 
- /* Scrollbar base */
- ::-webkit-scrollbar {
-     width: 10px;
-     height: 10px;
- }
+body {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+  scroll-padding-top: 84px;
+}
 
- /* Track (background of scrollbar) */
- ::-webkit-scrollbar-track {
-     background: var(--color-bg);
- }
+h1,
+h2,
+h3,
+h4,
+h5,
+.display-brand {
+  font-family: "Sora", "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
 
- /* Thumb (scroll handle) */
- ::-webkit-scrollbar-thumb {
-     background-color: var(--color-primary);
-     border-radius: 8px;
-     border: 2px solid var(--color-bg);
-     /* padding effect */
- }
+section {
+  position: relative;
+}
 
- /* On hover */
- ::-webkit-scrollbar-thumb:hover {
-     background-color: #6366f1;
-     /* slightly lighter for hover effect */
- }
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
 
+/* All buttons follow the Bootstrap button system, just pill-shaped */
+.btn-solid,
+.btn-outline,
+.btn-subtle,
+.btn-text,
+.btn-link,
+.btn-glass {
+  border-radius: 999px;
+  font-weight: 600;
+}
 
- body {
-     background-color: var(--color-bg);
-     color: var(--color-text);
-     transition: background-color 0.5s ease, color 0.5s ease;
- }
+/* Light outline button that sits on the colored CTA panel */
+.btn-glass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.25s var(--ease);
+}
 
- .primary-btn {
-     background-color: var(--color-primary);
-     transition: background-color 0.3s ease;
- }
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #fff;
+  color: #fff;
+}
 
- .color-theme {
-     background-color: var(--color-bg);
-     color: var(--color-text);
-     transition: background-color 0.5s, color 0.5s;
- }
+/* Brand-colored action buttons (collaborator links) */
+.btn-solid.btn-instagram,
+.btn-solid.btn-github {
+  color: #fff;
+  border-color: transparent;
+}
+
+.btn-solid.btn-instagram {
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+}
+
+.btn-solid.btn-github {
+  background-color: #181717;
+}
+
+.btn-solid.btn-instagram:hover,
+.btn-solid.btn-github:hover,
+.btn-solid.btn-instagram:focus-visible,
+.btn-solid.btn-github:focus-visible {
+  color: #fff;
+  filter: brightness(1.15);
+}
+
+/* =========================================================
+   2. NAVBAR
+   ========================================================= */
+.navbar {
+  background-color: transparent;
+  transition: all 0.35s var(--ease);
+  padding: 1rem 0;
+}
+
+.navbar.scrolled {
+  background: color-mix(in oklab, var(--bs-bg-body) 85%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--bs-box-shadow-sm);
+  padding: 0.55rem 0;
+}
+
+.navbar-brand {
+  font-family: "Sora", sans-serif;
+  font-weight: 800;
+}
+
+.navbar .nav-link {
+  font-weight: 600;
+  border-radius: 999px;
+  transition: all 0.25s var(--ease);
+}
+
+.navbar-toggler {
+  border: none;
+  box-shadow: none !important;
+}
+
+/* =========================================================
+   3. HERO
+   ========================================================= */
+.hero {
+  background:
+    radial-gradient(
+      1100px 620px at 88% -10%,
+      color-mix(in oklab, var(--brand) 16%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 560px at -8% 22%,
+      color-mix(in oklab, var(--accent) 16%, transparent),
+      transparent 55%
+    ),
+    var(--bs-bg-1);
+  padding: clamp(120px, 16vw, 180px) 0 clamp(70px, 9vw, 110px);
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    color-mix(in oklab, var(--bs-fg-body) 6%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 26px 26px;
+  mask-image: linear-gradient(180deg, #000 40%, transparent);
+  -webkit-mask-image: linear-gradient(180deg, #000 40%, transparent);
+  pointer-events: none;
+}
+
+.hero > .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5.4vw, 3.6rem);
+  line-height: 1.08;
+}
+
+.hero .highlight {
+  background: linear-gradient(115deg, var(--brand), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Profile photo frame */
+.avatar-wrap {
+  position: relative;
+  width: min(360px, 82%);
+  margin-inline: auto;
+}
+
+.avatar-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -18px -10px 22px 24px;
+  background: var(--accent);
+  border-radius: 42% 58% 46% 54% / 50% 44% 56% 50%;
+  z-index: 0;
+  opacity: 0.9;
+  animation: blob 9s ease-in-out infinite;
+}
+
+.avatar-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 30px 26px -16px -12px;
+  background: var(--brand);
+  border-radius: 58% 42% 54% 46% / 46% 56% 44% 54%;
+  z-index: 0;
+  opacity: 0.85;
+  animation: blob 11s ease-in-out infinite reverse;
+}
+
+@keyframes blob {
+  0%,
+  100% {
+    border-radius: 42% 58% 46% 54% / 50% 44% 56% 50%;
+  }
+  50% {
+    border-radius: 56% 44% 58% 42% / 44% 54% 46% 56%;
+  }
+}
+
+.avatar-wrap img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 40% 60% 54% 46% / 52% 48% 52% 48%;
+  border: 6px solid var(--bs-bg-body);
+  box-shadow: var(--bs-box-shadow);
+}
+
+.float-badge {
+  position: absolute;
+  z-index: 2;
+  animation: floaty 4s ease-in-out infinite;
+}
+
+.float-badge.badge-1 {
+  top: 6%;
+  left: -6%;
+}
+
+.float-badge.badge-2 {
+  bottom: 10%;
+  right: -8%;
+  animation-delay: 1.2s;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* =========================================================
+   4. ABOUT
+   ========================================================= */
+.about-stat {
+  border-radius: var(--bs-radius-5);
+  padding: 1.1rem;
+  height: 100%;
+  transition: transform 0.25s var(--ease);
+}
+
+.about-stat:hover {
+  transform: translateY(-6px);
+}
+
+/* =========================================================
+   5. SKILLS
+   ========================================================= */
+.skill-card {
+  border-radius: var(--bs-radius-5);
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  height: 100%;
+  transition: all 0.25s var(--ease);
+}
+
+.skill-card:hover {
+  border-color: var(--brand) !important;
+  transform: translateY(-6px);
+  box-shadow: var(--bs-box-shadow);
+}
+
+.skill-icon {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.skill-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+/* =========================================================
+   6. PROJECTS
+   ========================================================= */
+.project-card {
+  border-radius: var(--bs-radius-9);
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.3s var(--ease),
+    box-shadow 0.3s var(--ease);
+  height: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--bs-box-shadow-lg);
+}
+
+.project-thumb {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease);
+}
+
+.project-card:hover .project-thumb img {
+  transform: scale(1.08);
+}
+
+.project-thumb .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.78));
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+}
+
+.project-card:hover .project-thumb .overlay {
+  opacity: 1;
+}
+
+/* =========================================================
+   7. CERTIFICATES
+   ========================================================= */
+.cert-card {
+  border-radius: var(--bs-radius-5);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+  height: 100%;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--bs-box-shadow);
+  border-color: var(--accent) !important;
+}
+
+.cert-card .thumb {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.cert-card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================================================
+   8. FOOTER
+   ========================================================= */
+.social-btn {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1.1rem;
+  transition: all 0.25s var(--ease);
+}
+
+.social-btn:hover {
+  background: var(--brand);
+  color: #fff;
+  transform: translateY(-4px);
+}
+
+/* =========================================================
+   9. DIALOG (formerly Modal)
+   ========================================================= */
+.dialog-title {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+}
+
+/* Bootstrap 6 keeps closed dialogs at display:flex and only hides them with
+   visibility, so they still reserved ~900px of scrollable overflow below the
+   footer. Pinning them to the viewport when closed removes that gap while
+   leaving the open/close transition untouched. */
+dialog:not([open]) {
+  position: fixed;
+}
+
+/* Certificate preview inside dialogs: keep tall/portrait scans contained in a
+   consistent, centered frame instead of stretching the dialog off-screen. */
+.cert-preview {
+  display: block;
+  width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  background: var(--bs-bg-1);
+}
+
+/* =========================================================
+   10. SCROLL REVEAL ANIMATION
+   ========================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s var(--ease),
+    transform 0.7s var(--ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}

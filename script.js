@@ -1,137 +1,82 @@
-
-// Mobile nav dropdown animation
-function toggleNavDropdown() {
-    const nav = document.getElementById("navLinks");
-    if (nav.classList.contains("hidden")) {
-        nav.classList.remove("hidden");
-        setTimeout(() => {
-            nav.classList.remove("-translate-y-8", "opacity-0");
-            nav.classList.add("translate-y-0", "opacity-100");
-        }, 10);
-    } else {
-        nav.classList.remove("translate-y-0", "opacity-100");
-        nav.classList.add("-translate-y-8", "opacity-0");
-        setTimeout(() => {
-            nav.classList.add("hidden");
-        }, 300);
-    }
-}
-
-// AOS init
-AOS.init({ duration: 800, once: true });
-
-// Theme Toggle
-function toggleTheme() {
-    const html = document.documentElement;
-    const btn = document.getElementById("themeToggle");
-    const current = html.getAttribute("data-theme");
-    const next = current === "dark" ? "light" : "dark";
-    html.setAttribute("data-theme", next);
-    btn.innerHTML =
-        next === "dark"
-            ? '<i class="fas fa-moon" style="color: #fff; text-shadow: 0 0 8px #8b5cf688;"></i>'
-            : '<i class="fas fa-sun" style="color: #ffd220; text-shadow: 0 0 8px #ffd22088;"></i>';
-}
-// Set initial icon on load
-document.addEventListener("DOMContentLoaded", function () {
-    const html = document.documentElement;
-    const btn = document.getElementById("themeToggle");
-    const current = html.getAttribute("data-theme") || "light";
-    btn.innerHTML =
-        current === "dark"
-            ? '<i class="fas fa-moon" style="color: #fff; text-shadow: 0 0 8px #8b5cf688;"></i>'
-            : '<i class="fas fa-sun" style="color: #ffd220; text-shadow: 0 0 8px #ffd22088;"></i>';
+/* Bootstrap 6 ships as an ES module only, so it cannot be loaded with a
+   plain <script src>. We pull it in with a dynamic import instead. That lets
+   this file stay a classic script, which means everything keeps working even
+   when index.html is opened straight from disk (file://). */
+const bootstrapReady = import("bootstrap").catch((error) => {
+  console.error("Bootstrap bundle failed to load.", error);
+  return null;
 });
 
-// Modal Handler with smooth animation
-function openModal(id) {
-    const modal = document.getElementById(id);
-    modal.classList.remove("hidden");
-    // Animate in
-    requestAnimationFrame(() => {
-        modal.classList.remove("opacity-0");
-        modal.classList.add("opacity-100");
-    });
-}
+/* =========================================================
+   1. NAVBAR: solid background on scroll
+   ========================================================= */
+const nav = document.getElementById("mainNav");
+const onScrollNav = () => nav.classList.toggle("scrolled", window.scrollY > 40);
+window.addEventListener("scroll", onScrollNav, { passive: true });
+onScrollNav();
 
-function closeModal(id) {
-    const modal = document.getElementById(id);
-    // Animate out
-    modal.classList.remove("opacity-100");
-    modal.classList.add("opacity-0");
-    setTimeout(() => {
-        modal.classList.add("hidden");
-    }, 300); // Match transition duration
-}
+/* =========================================================
+   2. AUTO-UPDATE FOOTER YEAR
+   ========================================================= */
+document.getElementById("year").textContent = new Date().getFullYear();
 
-// Add base transition to all modals
-document
-    .querySelectorAll('[id^="sertifModal"],[id^="portfolioModal"]')
-    .forEach((modal) => {
-        modal.classList.add(
-            "transition-opacity",
-            "duration-300",
-            "opacity-0"
-        );
-    });
+/* =========================================================
+   3. SMOOTH SCROLL + AUTO-CLOSE MOBILE MENU (Drawer)
+   ========================================================= */
+const navDrawer = document.getElementById("navMenu");
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", async (e) => {
+    const targetId = link.getAttribute("href");
+    if (targetId.length < 2) return; // ignore href="#"
+    const target = document.querySelector(targetId);
+    if (!target) return;
 
-// element loading
-fetch("components/navbar.html")
-    .then((res) => res.text())
-    .then((data) => {
-        document.getElementById("navbar-container").innerHTML = data;
-    });
+    e.preventDefault();
+    const offset = 76; // navbar height
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: "smooth" });
 
-fetch("components/hero.html")
-    .then((res) => res.text())
-    .then((data) => {
-        document.getElementById("hero-container").innerHTML = data;
-    });
+    // Close the mobile drawer if it is open
+    if (navDrawer && navDrawer.open) {
+      const bootstrap = await bootstrapReady;
+      if (bootstrap) {
+        bootstrap.Drawer.getOrCreateInstance(navDrawer).hide();
+      }
+    }
+  });
+});
 
-fetch("components/profile.html")
-    .then((res) => res.text())
-    .then((data) => {
-        document.getElementById("profile-container").innerHTML = data;
+/* =========================================================
+   4. ACTIVE NAV LINK BASED ON THE VISIBLE SECTION
+   ========================================================= */
+const sections = document.querySelectorAll("section[id], header[id]");
+const navLinks = document.querySelectorAll(".navbar .nav-link");
+const spy = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const id = entry.target.getAttribute("id");
+      navLinks.forEach((l) =>
+        l.classList.toggle("active", l.getAttribute("href") === "#" + id),
+      );
     });
+  },
+  { rootMargin: "-45% 0px -50% 0px" },
+);
+sections.forEach((s) => spy.observe(s));
 
-fetch("components/skills.html")
-    .then((res) => res.text())
-    .then((data) => {
-        document.getElementById("skills-container").innerHTML = data;
+/* =========================================================
+   5. SCROLL REVEAL ANIMATION
+   ========================================================= */
+const revealer = new IntersectionObserver(
+  (entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        obs.unobserve(entry.target);
+      }
     });
-
-fetch("components/certificates.html")
-    .then((res) => res.text())
-    .then((data) => {
-        document.getElementById("certificates-container").innerHTML = data;
-    });
-
-fetch("components/projects.html")
-    .then((res) => res.text())
-    .then((data) => {
-        document.getElementById("projects-container").innerHTML = data;
-    });
-
-fetch("components/contact.html")
-    .then((res) => res.text())
-    .then((data) => {
-        document.getElementById("contact-container").innerHTML = data;
-    });
-
-fetch("components/modal-certificates.html")
-    .then((res) => res.text())
-    .then((data) => {
-        document.getElementById("modal-certificates-container").innerHTML = data;
-    });
-
-fetch("components/modal-projects.html")
-    .then((res) => res.text())
-    .then((data) => {
-        document.getElementById("modal-projects-container").innerHTML = data;
-    });
-
-fetch("components/footer.html")
-    .then((res) => res.text())
-    .then((data) => {
-        document.getElementById("footer-container").innerHTML = data;
-    });
+  },
+  { threshold: 0.12 },
+);
+document.querySelectorAll(".reveal").forEach((el) => revealer.observe(el));
